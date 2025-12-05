@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Neutral Gray Scale (no blue tint) - Custom design specs */
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #272727; /* Dark theme secondary */
+  --color-gray-900: #1e1e1e; /* Dark theme background */
+  --color-gray-950: #0a0a0a;
+
+  /* Custom chart background color */
+  --color-chart-bg: #f7f9fb;
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Light theme - #ffffff primary, #f6f9fb secondary */
+  --background: 0 0% 100%; /* #ffffff */
+  --foreground: 0 0% 9%; /* #171717 */
+  --card: 0 0% 100%; /* #ffffff */
+  --card-foreground: 0 0% 9%; /* #171717 */
+  --popover: 0 0% 100%; /* #ffffff */
+  --popover-foreground: 0 0% 9%; /* #171717 */
+  --primary: 0 0% 100%; /* #ffffff */
+  --primary-foreground: 0 0% 9%; /* #171717 */
+  --secondary: 210 20% 97%; /* #f6f9fb */
+  --secondary-foreground: 0 0% 9%; /* #171717 */
+  --muted: 210 20% 97%; /* #f6f9fb */
+  --muted-foreground: 0 0% 45%; /* #737373 */
+  --accent: 210 20% 97%; /* #f6f9fb */
+  --accent-foreground: 0 0% 9%; /* #171717 */
+  --destructive: 0 63% 31%; /* Red for errors */
+  --border: 0 0% 90%; /* #e5e5e5 */
+  --input: 0 0% 90%; /* #e5e5e5 */
+  --ring: 0 0% 71%; /* #b5b5b5 */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Metric card colors - Light mode */
+  --metric-card-1: #e3f5ff; /* Light blue for Customers */
+  --metric-card-2: #f7f9fb; /* Light gray for Orders */
+  --metric-card-3: #f7f9fb; /* Light gray for Revenue */
+  --metric-card-4: #e5ecf6; /* Light purple for Growth */
+  --metric-card-text: #1c1c1c; /* Dark text for light cards */
+  --chart-bg: #f7f9fb; /* Chart background - light gray */
+}
+
+.dark {
+  /* Dark theme - #1E1E1E bg, #272727 secondary */
+  --background: 0 0% 12%; /* #1e1e1e */
+  --foreground: 0 0% 98%; /* #fafafa */
+  --card: 0 0% 12%; /* #1e1e1e */
+  --card-foreground: 0 0% 98%; /* #fafafa */
+  --popover: 0 0% 12%; /* #1e1e1e */
+  --popover-foreground: 0 0% 98%; /* #fafafa */
+  --primary: 0 0% 98%; /* #fafafa */
+  --primary-foreground: 0 0% 12%; /* #1e1e1e */
+  --secondary: 0 0% 15%; /* #272727 */
+  --secondary-foreground: 0 0% 98%; /* #fafafa */
+  --muted: 0 0% 15%; /* #272727 */
+  --muted-foreground: 0 0% 65%; /* #a6a6a6 */
+  --accent: 0 0% 15%; /* #272727 */
+  --accent-foreground: 0 0% 98%; /* #fafafa */
+  --destructive: 0 63% 31%; /* Red for errors */
+  --destructive-foreground: 0 0% 98%; /* #fafafa */
+  --border: 0 0% 20%; /* #333333 */
+  --input: 0 0% 20%; /* #333333 */
+  --ring: 0 0% 84%; /* #d6d6d6 */
+
+  /* Chart colors - keep colorful for data visualization */
+  --line-chart: 206 20% 75%;
+  --chart-1: 205 40% 76%;
+  --chart-2: 206 11% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+  --chart-6: 340 75% 55%;
+
+  /* Sidebar - matching dark theme */
+  --sidebar-background: 0 0% 12%; /* #1e1e1e */
+  --sidebar-foreground: 0 0% 96%; /* #f5f5f5 */
+  --sidebar-primary: 224 76% 48%; /* Blue accent - keep for brand */
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 15%; /* #272727 */
+  --sidebar-accent-foreground: 0 0% 96%;
+  --sidebar-border: 0 0% 20%; /* #333333 */
+  --sidebar-ring: 217 91% 60%; /* Blue ring - keep for focus */
+
+  /* Metric card colors - Dark mode */
+  --metric-card-1: #e3f5ff; /* Dark for Customers (with light blue in light mode) */
+  --metric-card-2: #2c2c2c; /* Slightly lighter dark for Orders */
+  --metric-card-3: #2c2c2c; /* Dark for Revenue */
+  --metric-card-4: #e5ecf6; /* Slightly lighter dark for Growth */
+  --metric-card-text: #fafafa; /* Light text for dark cards */
+  --metric-card-text-dark: #1c1c1c; /* Light text for dark cards */
+  --chart-bg: #2c2c2c; /* Chart background - dark gray */
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: color-mix(in oklch, var(--ring), transparent 50%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  /* Custom Scrollbar Styling */
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+  }
+
+  /* Show scrollbar on hover or when scrolling */
+  *:hover::-webkit-scrollbar-thumb {
+    background: #d4d4d4;
+  }
+
+  *:hover::-webkit-scrollbar-thumb:hover {
+    background: #a3a3a3;
+  }
+
+  /* Dark mode scrollbar */
+  .dark *:hover::-webkit-scrollbar-thumb {
+    background: #404040;
+  }
+
+  .dark *:hover::-webkit-scrollbar-thumb:hover {
+    background: #525252;
+  }
+
+  /* Firefox - Auto-hide scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  /* Show scrollbar on hover for Firefox */
+  *:hover {
+    scrollbar-color: #d4d4d4 transparent;
+  }
+
+  .dark *:hover {
+    scrollbar-color: #404040 transparent;
+  }
+
+  /* Smooth scrolling optimization */
+  .overflow-y-auto,
+  .overflow-x-auto,
+  .overflow-auto {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    will-change: scroll-position;
+  }
+
+  /* Show scrollbar while actively scrolling */
+  .overflow-y-auto:active::-webkit-scrollbar-thumb,
+  .overflow-x-auto:active::-webkit-scrollbar-thumb,
+  .overflow-auto:active::-webkit-scrollbar-thumb {
+    background: #d4d4d4 !important;
+  }
+
+  .dark .overflow-y-auto:active::-webkit-scrollbar-thumb,
+  .dark .overflow-x-auto:active::-webkit-scrollbar-thumb,
+  .dark .overflow-auto:active::-webkit-scrollbar-thumb {
+    background: #404040 !important;
+  }
+}

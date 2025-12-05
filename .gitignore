@@ -33,6 +33,13 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+/ASSIGNMENT_CHECKLIST.md
+ASSIGNMENT_CHECKLIST.md
+/COMPONENTS_GUIDE.md
+COMPONENTS_GUIDE.md
+/.windsurfrules
+.windsurfrules
+
 # vercel
 .vercel
 
