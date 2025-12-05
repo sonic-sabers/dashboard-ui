@@ -129,13 +129,7 @@ export default function Dashboard() {
               </motion.div>
             );
 
-            return metric.link ? (
-              <Link key={metric.label} href={metric.link}>
-                {content}
-              </Link>
-            ) : (
-              content
-            );
+            return content;
           })}
         </motion.div>
 
