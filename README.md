@@ -22,7 +22,7 @@ A modern, responsive SaaS dashboard built with Next.js, React, TypeScript, and T
 
 ## 🚀 Live Demo
 
-**Deployed Application:** 
+**Deployed Application:**
 
 ## ⚡ Working Features
 
@@ -289,6 +289,7 @@ A modern, responsive SaaS dashboard built with Next.js, React, TypeScript, and T
 
 - **Linting**: ESLint
 - **Type Checking**: TypeScript
+- **Testing**: Jest + React Testing Library
 - **Package Manager**: npm
 
 ## 🚀 Getting Started
@@ -345,8 +346,17 @@ npm run lint
 # Format code
 npm run format
 
-# Run tests (if configured)
-npm run test
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run specific test file
+npm test -- MenuItem.test.tsx
 ```
 
 ## 📁 Project Structure
