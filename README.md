@@ -191,27 +191,14 @@ A modern, responsive SaaS dashboard built with Next.js, React, TypeScript, and T
 ## 📋 Table of Contents
 
 - [⚡ Working Features](#-working-features) ⭐ **START HERE**
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Redux State Management](#redux-state-management)
-- [Custom Hooks](#custom-hooks)
-- [Data Layer](#data-layer)
-- [TypeScript Types](#typescript-types)
-- [Configuration Files](#configuration-files)
-- [Utilities](#utilities)
-- [Animation System](#animation-system)
-- [Orders Table - Advanced Data Management](#-orders-table---advanced-data-management)
-- [Dynamic Breadcrumbs](#-dynamic-breadcrumbs)
-- [Testing](#-testing)
-- [Design Decisions](#design-decisions)
-- [Challenges & Solutions](#challenges--solutions)
-- [Performance Optimizations](#performance-optimizations)
-- [Browser Compatibility](#browser-compatibility)
-- [Future Improvements](#future-improvements)
-- [Assignment Compliance](#-assignment-compliance)
-- [Quick Reference](#quick-reference)
+- [Screenshots](#-screenshots)
+- [Live Demo](#-live-demo)
+- [Features](#-features)
+- [Tech Stack](#️-tech-stack)
+- [Getting Started](#-getting-started)
+- [Project Structure](#-project-structure)
+- [Redux State Management](#-redux-state-management)
+- [Acknowledgments](#-acknowledgments)
 
 ## ✨ Features
 
@@ -263,17 +250,20 @@ A modern, responsive SaaS dashboard built with Next.js, React, TypeScript, and T
 
 - **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **UI Library**: [React 19](https://react.dev/)
+- **UI Library**: [React 18.3.1](https://react.dev/)
 
 ### Styling & UI
 
 - **CSS Framework**: [Tailwind CSS 4](https://tailwindcss.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) + [Motion](https://motion.dev/) + [GSAP](https://gsap.com/)
+- **UI Components**: [Radix UI](https://www.radix-ui.com/) + [Base UI](https://base-ui.com/)
 
 ### Data Visualization
 
-- **Charts**: [Recharts](https://recharts.org/)
+- **Charts**: [Recharts](https://recharts.org/) + [Chart.js](https://www.chartjs.org/)
+- **Maps**: [react-simple-maps](https://www.react-simple-maps.io/)
+- **Tables**: [TanStack Table](https://tanstack.com/table/latest)
 
 ### State Management
 
@@ -290,6 +280,7 @@ A modern, responsive SaaS dashboard built with Next.js, React, TypeScript, and T
 - **Linting**: ESLint
 - **Type Checking**: TypeScript
 - **Testing**: Jest + React Testing Library
+- **Formatting**: Prettier
 - **Package Manager**: npm
 
 ## 🚀 Getting Started
@@ -667,15 +658,20 @@ export type AppStore = ReturnType<typeof makeStore>;
   "react-redux": "^9.2.0",
   "redux-persist": "^6.0.0",
   "next": "16.0.6",
-  "react": "19.2.0",
+  "react": "18.3.1",
+  "react-dom": "19.2.0",
   "framer-motion": "^11.11.17",
   "motion": "^12.23.25",
-  "gsap": "^3.12.5",
+  "gsap": "^3.13.0",
   "hammerjs": "^2.0.8",
+  "@tanstack/react-table": "^8.21.3",
   "tailwindcss": "^4",
   "lucide-react": "^0.468.0",
   "recharts": "^2.15.0",
-  "next-themes": "^0.4.6"
+  "react-simple-maps": "^3.0.0",
+  "next-themes": "^0.4.6",
+  "@radix-ui/react-avatar": "^1.1.11",
+  "@radix-ui/react-dropdown-menu": "^2.1.16"
 }
 ```
 
