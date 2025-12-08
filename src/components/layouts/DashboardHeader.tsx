@@ -102,7 +102,7 @@ export function DashboardHeader({
 
   return (
     <header className="sticky top-0 z-20 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-      <div className="flex items-center justify-between gap-4 px-4 lg:px-6 py-3 lg:py-3.5">
+      <div className="flex items-center justify-between gap-2 md:gap-4 px-4 md:px-6 py-3 md:py-3.5">
         {/* Left Section: Menu + Breadcrumb */}
         <div className="flex items-center gap-2 min-w-0 flex-1">
           <button
@@ -179,9 +179,9 @@ export function DashboardHeader({
           </nav>
         </div>
 
-        <div className="flex items-center gap-2 lg:gap-3">
+        <div className="flex items-center gap-1 md:gap-2 lg:gap-3">
           <div
-            className={`hidden md:flex items-center gap-2 rounded-lg px-2 py-1 w-40 h-7 transition-all ${
+            className={`hidden md:flex items-center gap-2 rounded-lg px-2 py-1 w-32 lg:w-40 h-7 transition-all ${
               isSearchFocused
                 ? "bg-white dark:bg-gray-700 ring-2 ring-blue-500 dark:ring-blue-400"
                 : "bg-[#1C1C1C]/5 dark:bg-white/5"

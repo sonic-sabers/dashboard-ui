@@ -11,7 +11,7 @@ const Checkbox = React.forwardRef<
   <CheckboxPrimitive.Root
     ref={ref}
     className={cn(
-      "peer h-4 w-4 shrink-0 rounded border border-gray-300 dark:border-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-gray-900 data-[state=checked]:border-gray-900 data-[state=checked]:text-white dark:data-[state=checked]:bg-gray-100 dark:data-[state=checked]:border-gray-100 dark:data-[state=checked]:text-gray-900 data-[state=indeterminate]:bg-white data-[state=indeterminate]:border-gray-900 data-[state=indeterminate]:text-gray-900 dark:data-[state=indeterminate]:bg-gray-800 dark:data-[state=indeterminate]:border-gray-100 dark:data-[state=indeterminate]:text-gray-100",
+      "peer h-4 w-4 shrink-0 rounded border border-gray-300 dark:border-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-[#1C1C1C] data-[state=checked]:border-[#1C1C1C] data-[state=checked]:text-white dark:data-[state=checked]:bg-[#C6C7F8] dark:data-[state=checked]:border-[#C6C7F8] dark:data-[state=checked]:text-[#1C1C1C] data-[state=indeterminate]:bg-white data-[state=indeterminate]:border-[#1C1C1C] data-[state=indeterminate]:text-[#1C1C1C] dark:data-[state=indeterminate]:bg-gray-800 dark:data-[state=indeterminate]:border-[#C6C7F8] dark:data-[state=indeterminate]:text-[#C6C7F8]",
       className
     )}
     {...props}

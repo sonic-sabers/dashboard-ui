@@ -19,6 +19,7 @@ export default function Drawer({
   const contentRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
   const prevOverlay = useRef(overlay);
+  const prevOpen = useRef(open);
 
   useEffect(() => {
     if (!drawerRef.current || !contentRef.current) return;
@@ -26,6 +27,10 @@ export default function Drawer({
 
     // Reset isFirstRender when switching between desktop/mobile
     if (prevOverlay.current !== overlay) {
+      // If drawer is open during overlay change, ensure content stays visible
+      if (open) {
+        gsap.set(contentRef.current, { opacity: 1 });
+      }
       isFirstRender.current = true;
       prevOverlay.current = overlay;
     }
@@ -46,6 +51,7 @@ export default function Drawer({
         opacity: open ? 1 : 0,
       });
       isFirstRender.current = false;
+      prevOpen.current = open;
     } else {
       // Animate subsequent changes
       if (overlay) {
@@ -62,11 +68,17 @@ export default function Drawer({
         });
       }
 
-      // Fade content
-      gsap.to(contentRef.current, {
-        opacity: open ? 1 : 0,
-        ...fadePreset,
-      });
+      // Fade content - only if open state actually changed
+      if (prevOpen.current !== open) {
+        gsap.to(contentRef.current, {
+          opacity: open ? 1 : 0,
+          ...fadePreset,
+        });
+        prevOpen.current = open;
+      } else if (open) {
+        // If drawer is open but overlay changed, ensure content is visible
+        gsap.set(contentRef.current, { opacity: 1 });
+      }
     }
   }, [open, overlay, side]);
 
@@ -84,8 +96,8 @@ export default function Drawer({
     >
       <div
         ref={contentRef}
-        className="opacity-0 h-full px-2"
-        style={{ width: 280, minWidth: 280 }}
+        className="h-full px-2"
+        style={{ width: 280, minWidth: 280, opacity: 0 }}
       >
         {children}
       </div>

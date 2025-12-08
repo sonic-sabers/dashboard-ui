@@ -29,7 +29,7 @@ export default function RightDrawer({
 
   return (
     <Drawer side="right" open={open} overlay={overlay}>
-      <div className="h-full overflow-y-auto p-4">
+      <div className="h-full overflow-y-auto p-1 pt-4">
         <div className="space-y-4">
           <Section
             ref={notificationsSectionRef}
@@ -40,26 +40,46 @@ export default function RightDrawer({
               const getIcon = () => {
                 switch (notification.type) {
                   case "bug":
-                    return <Bug className="w-4 h-4 text-gray-900" />;
+                    return (
+                      <Bug
+                        className="w-4 h-4"
+                        style={{ width: "16px", height: "16px" }}
+                      />
+                    );
                   case "user":
-                    return <UserPlus className="w-4 h-4 text-gray-900" />;
+                    return (
+                      <UserPlus
+                        className="w-4 h-4"
+                        style={{ width: "16px", height: "16px" }}
+                      />
+                    );
                   case "subscription":
-                    return <Radio className="w-4 h-4 text-gray-900" />;
+                    return (
+                      <Radio
+                        className="w-4 h-4"
+                        style={{ width: "16px", height: "16px" }}
+                      />
+                    );
                   default:
-                    return <Bug className="w-4 h-4 text-gray-900" />;
+                    return (
+                      <Bug
+                        className="w-4 h-4"
+                        style={{ width: "16px", height: "16px" }}
+                      />
+                    );
                 }
               };
 
               const getIconBg = () => {
                 switch (notification.type) {
                   case "bug":
-                    return "bg-blue-50 ";
+                    return "bg-[#E3F5FF] dark:bg-[#E3F5FF]";
                   case "user":
-                    return "bg-blue-50 ";
+                    return "bg-[#E3F5FF] dark:bg-[#E3F5FF]";
                   case "subscription":
-                    return "bg-blue-50 ";
+                    return "bg-[#E3F5FF] dark:bg-[#E3F5FF]";
                   default:
-                    return "bg-blue-50 ";
+                    return "bg-[#E3F5FF] dark:bg-[#E3F5FF]";
                 }
               };
 
@@ -130,7 +150,7 @@ const Section = React.forwardRef<
         padding: highlight ? "12px" : "0px",
       }}
     >
-      <h2 className="text-sm font-semibold text-gray-900 dark:text-white">
+      <h2 className="text-sm font-semibold px-2 text-gray-900 dark:text-white">
         {title}
       </h2>
       <div className="space-y-1 md:space-y-2">{children}</div>
@@ -152,17 +172,37 @@ function NotificationItem({
   time: string;
 }) {
   return (
-    <div className="flex items-start gap-2 md:gap-3 p-1.5 md:p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+    <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer">
       <div
-        className={`w-6 h-6 rounded flex items-center justify-center flex-shrink-0 ${iconBg}`}
+        className={`flex items-center justify-center flex-shrink-0 ${iconBg}`}
+        style={{
+          width: "24px",
+          height: "24px",
+          borderRadius: "3px",
+          padding: "4px",
+        }}
       >
-        {icon}
+        <div className="text-[#1C1C1C]">{icon}</div>
       </div>
-      <div className="flex-1 min-w-0">
-        <p className="text-sm font-normal text-gray-900 dark:text-white truncate leading-tight">
+      <div className="flex-1 min-w-0 flex flex-col" style={{ width: "192px" }}>
+        <p
+          className="font-normal text-gray-900 dark:text-white truncate"
+          style={{
+            fontSize: "14px",
+            lineHeight: "20px",
+            fontWeight: 400,
+          }}
+        >
           {title}
         </p>
-        <p className="text-xs font-normal text-gray-900/40 dark:text-white/40 leading-tight">
+        <p
+          className="font-normal text-gray-900/40 dark:text-white/40"
+          style={{
+            fontSize: "12px",
+            lineHeight: "18px",
+            fontWeight: 400,
+          }}
+        >
           {time}
         </p>
       </div>
@@ -182,9 +222,9 @@ function ActivityItem({
   isLast?: boolean;
 }) {
   return (
-    <div className="relative flex items-start gap-2 md:gap-3 p-1.5 md:p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+    <div className="relative flex items-start gap-2 md:gap-3 py-1 pl-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer">
       {!isLast && (
-        <div className="absolute left-[17.5px] mt-1 md:left-[20px] top-10 bottom-[-6px] w-[1px] bg-gray-900/10 dark:bg-white/10 z-0" />
+        <div className="absolute left-[17.5px] mt-1 md:left-[18px] top-10 bottom-[-6px] w-[1px] bg-gray-900/10 dark:bg-white/10 z-0" />
       )}
 
       <Image
@@ -208,7 +248,7 @@ function ActivityItem({
 
 function ContactItem({ avatar, name }: { avatar: string; name: string }) {
   return (
-    <div className="flex items-center gap-2 md:gap-3 p-1.5 md:p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+    <div className="flex items-center gap-2 md:gap-3 p-1.5  rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer">
       <Image
         src={avatar}
         alt={name}

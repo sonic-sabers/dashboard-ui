@@ -89,13 +89,9 @@ export default function RevenueChart({
   );
 
   return (
-    <div
-      className={`w-full h-full relative bg-transparent rounded-lg overflow-visible ${
-        isMobile ? "p-4" : "p-6"
-      }`}
-    >
+    <div className="w-full h-full relative bg-transparent rounded-lg overflow-visible p-4 md:p-6">
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 md:mb-6">
         <h3 className="text-sm font-semibold shrink-0 text-gray-900 dark:text-white m-0">
           Revenue
         </h3>
@@ -122,7 +118,7 @@ export default function RevenueChart({
       </div>
 
       {/* Chart Section */}
-      <div className="h-[200px] sm:h-[240px] lg:h-[240px]">
+      <div className="h-[200px] md:h-[240px]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={chartData}

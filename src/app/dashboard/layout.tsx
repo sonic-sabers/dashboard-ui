@@ -52,6 +52,7 @@ export default function DashboardLayout({
         position="left"
       >
         <LeftDrawer
+          key={`left-drawer-${isMobile ? "mobile" : "desktop"}`}
           open={leftOpen}
           overlay={isMobile}
           showRecentlyTab={showRecentlyTab}
@@ -70,7 +71,9 @@ export default function DashboardLayout({
           onHistoryClick={handleHistoryClick}
         />
 
-        <div className="p-4 md:p-6">{children}</div>
+        <div className="p-4 md:p-6 lg:p-8 max-w-[1920px] mx-auto">
+          {children}
+        </div>
       </main>
 
       <DrawerWrapper
@@ -81,6 +84,7 @@ export default function DashboardLayout({
         position="right"
       >
         <RightDrawer
+          key={`right-drawer-${isMobile ? "mobile" : "desktop"}`}
           open={rightOpen}
           overlay={isMobile}
           highlightNotifications={highlightNotifications}

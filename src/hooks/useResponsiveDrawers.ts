@@ -20,11 +20,13 @@ export function useResponsiveDrawers({
 }) {
   const [isMobile, setIsMobile] = useState(false);
   const [prevMobile, setPrevMobile] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   // Initial mobile check and close drawers on mobile
   useEffect(() => {
-    const mobile = window.innerWidth < 768;
+    const mobile = window.innerWidth < 1024; // Changed to 1024px for tablet support
     setIsMobile(mobile);
+    setIsInitialized(true);
 
     // Close drawers on initial mobile load
     if (mobile) {
@@ -36,16 +38,23 @@ export function useResponsiveDrawers({
 
   // Debounced mobile detection for resize events
   useEffect(() => {
+    if (!isInitialized) return;
+
     const checkMobile = () => {
-      const mobile = window.innerWidth < 768;
-      setIsMobile(mobile);
+      const mobile = window.innerWidth < 1024; // Changed to 1024px for tablet support
+      const prevMobileState = isMobile;
+
+      // Only update if the state actually changed
+      if (mobile !== prevMobileState) {
+        setIsMobile(mobile);
+      }
     };
 
     // Debounced resize handler
     let timeoutId: NodeJS.Timeout;
     const debouncedResize = () => {
       clearTimeout(timeoutId);
-      timeoutId = setTimeout(checkMobile, 150); // 150ms debounce
+      timeoutId = setTimeout(checkMobile, 200); // Increased to 200ms for better stability
     };
 
     window.addEventListener("resize", debouncedResize);
@@ -53,18 +62,31 @@ export function useResponsiveDrawers({
       clearTimeout(timeoutId);
       window.removeEventListener("resize", debouncedResize);
     };
-  }, []);
+  }, [isInitialized, isMobile]);
 
-  // Close right drawer only when transitioning from desktop to mobile
+  // Close drawers only when transitioning from desktop to mobile
   useEffect(() => {
+    if (!isInitialized) return;
+
     if (isMobile !== prevMobile) {
-      if (isMobile && rightOpen) {
-        // Transitioning from desktop to mobile with right drawer open
-        setRightOpen(false);
+      if (isMobile) {
+        // Transitioning from desktop to mobile - close both drawers
+        if (leftOpen) setLeftOpen(false);
+        if (rightOpen) setRightOpen(false);
       }
+      // When transitioning from mobile to desktop, keep drawers closed
+      // User can manually open them
       setPrevMobile(isMobile);
     }
-  }, [isMobile, prevMobile, rightOpen, setRightOpen]);
+  }, [
+    isMobile,
+    prevMobile,
+    leftOpen,
+    rightOpen,
+    setLeftOpen,
+    setRightOpen,
+    isInitialized,
+  ]);
 
   // Handle escape key to close drawers
   useEffect(() => {

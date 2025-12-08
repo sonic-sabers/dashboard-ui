@@ -102,7 +102,7 @@ export function RevenueByLocation() {
                   initial={{ width: 0 }}
                   animate={{ width: `${(location.value / 72) * 100}%` }}
                   transition={{ duration: 0.8, delay: index * 0.1 + 0.2 }}
-                  className="h-full bg-[#A8C5DA] dark:bg-blue-500 rounded-full"
+                  className="h-full bg-[#A8C5DA] rounded-full"
                 />
               </div>
             </div>

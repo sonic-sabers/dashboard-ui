@@ -231,10 +231,16 @@ export const columns = [
     minSize: 60,
     maxSize: 80,
     cell: ({ row }: any) => {
+      const [isOpen, setIsOpen] = React.useState(false);
+
       return (
-        <DropdownMenu>
+        <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
           <DropdownMenuTrigger asChild>
-            <button className="h-8 w-8 p-0 inline-flex items-center justify-center rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-all focus-visible:outline-none opacity-0 group-hover/row:opacity-100">
+            <button
+              className={`h-8 w-8 p-0 inline-flex items-center justify-center rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-all focus-visible:outline-none ${
+                isOpen ? "opacity-100" : "opacity-0 group-hover/row:opacity-100"
+              }`}
+            >
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </button>

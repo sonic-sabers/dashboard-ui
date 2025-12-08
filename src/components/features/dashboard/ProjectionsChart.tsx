@@ -23,12 +23,12 @@ interface ProjectionsChartProps {
 
 export default function ProjectionsChart({ data }: ProjectionsChartProps) {
   return (
-    <div className="flex flex-col gap-4 rounded-2xl p-4 lg:p-6 bg-chart-bg  dark:bg-gray-800">
+    <div className="flex flex-col gap-4 rounded-2xl p-4 md:p-6 bg-chart-bg dark:bg-gray-800 h-full">
       <SectionHeader
-        className="dark:text-gray-200 "
+        className="dark:text-gray-200"
         title="Projections vs Actuals"
       />
-      <ResponsiveContainer width="100%" height={180}>
+      <ResponsiveContainer width="100%" height={180} minHeight={160}>
         <BarChart data={data}>
           <CartesianGrid
             strokeDasharray=""

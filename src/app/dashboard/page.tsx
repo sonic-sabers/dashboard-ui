@@ -71,7 +71,7 @@ const fadeInUp = {
 export default function Dashboard() {
   return (
     <motion.div
-      className="p-4 space-y-6"
+      className="space-y-4 md:space-y-6"
       initial="hidden"
       animate="show"
       variants={staggerParent}
@@ -84,11 +84,11 @@ export default function Dashboard() {
         eCommerce
       </motion.h1>
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6"
         variants={staggerParent}
       >
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6"
           variants={staggerParent}
         >
           {dashboardMetrics.map((metric) => {
@@ -110,8 +110,8 @@ export default function Dashboard() {
                   {metric.label}
                 </p>
 
-                <div className="flex h-full items-center gap-2 justify-between flex-col md:flex-row ">
-                  <p className="text-xl sm:text-2xl font-semibold break-words">
+                <div className="flex h-full items-center gap-2 justify-between flex-row">
+                  <p className="text-lg sm:text-xl md:text-2xl font-semibold break-words">
                     {metric.value}
                   </p>
                   <p className="text-xs flex items-center gap-1 whitespace-nowrap shrink-0">
@@ -140,12 +140,12 @@ export default function Dashboard() {
 
       {/* Charts Row */}
       <motion.div
-        className="grid grid-cols-1 lg:grid-cols-3 gap-4"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
         variants={staggerParent}
       >
         {/* Revenue Line Chart */}
         <motion.div
-          className="lg:col-span-2 bg-chart-bg dark:bg-gray-800 rounded-2xl "
+          className="md:col-span-2 lg:col-span-2 bg-chart-bg dark:bg-gray-800 rounded-2xl"
           variants={fadeInUp}
           style={{ overflow: "hidden" }}
         >
@@ -160,7 +160,7 @@ export default function Dashboard() {
 
         {/* Revenue by Location */}
         <motion.div
-          className="bg-chart-bg dark:bg-gray-800 rounded-2xl p-6 "
+          className="bg-chart-bg dark:bg-gray-800 rounded-2xl p-4 md:p-6"
           variants={fadeInUp}
         >
           <Suspense fallback={<ChartSkeleton />}>
@@ -171,29 +171,29 @@ export default function Dashboard() {
 
       {/* Products and Sales Row */}
       <motion.div
-        className="grid grid-cols-1 lg:grid-cols-3 gap-4"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
         variants={staggerParent}
       >
         {/* Top Selling Products Table */}
         <motion.div
-          className="lg:col-span-2 bg-chart-bg  dark:bg-gray-800  rounded-2xl p-6 "
+          className="md:col-span-2 lg:col-span-2 bg-chart-bg dark:bg-gray-800 rounded-2xl p-4 md:p-6"
           variants={fadeInUp}
         >
           <SectionHeader title="Top Selling Products" className="mb-4" />
-          <div className="overflow-x-auto">
-            <table className="w-full">
+          <div className="overflow-x-auto -mx-2 px-2">
+            <table className="w-full min-w-[500px]">
               <thead>
                 <tr>
-                  <th className="text-left pb-3 text-xs font-normal text-gray-500/60 dark:text-gray-400/60 border-b border-gray-200 dark:border-gray-700">
+                  <th className="text-left pb-3 text-xs font-normal text-gray-500/60 dark:text-gray-400/60 border-b border-gray-200 dark:border-gray-700 w-2/5">
                     Name
                   </th>
-                  <th className="text-left pb-3 text-xs font-normal text-gray-500/60 dark:text-gray-400/60 border-b border-gray-200 dark:border-gray-700">
+                  <th className="text-left pb-3 text-xs font-normal text-gray-500/60 dark:text-gray-400/60 border-b border-gray-200 dark:border-gray-700 w-1/5">
                     Price
                   </th>
-                  <th className="text-left pb-3 text-xs font-normal text-gray-500/60 dark:text-gray-400/60 border-b border-gray-200 dark:border-gray-700">
+                  <th className="text-left pb-3 text-xs font-normal text-gray-500/60 dark:text-gray-400/60 border-b border-gray-200 dark:border-gray-700 w-1/5">
                     Quantity
                   </th>
-                  <th className="text-left pb-3 text-xs font-normal text-gray-500/60 dark:text-gray-400/60 border-b border-gray-200 dark:border-gray-700">
+                  <th className="text-left pb-3 text-xs font-normal text-gray-500/60 dark:text-gray-400/60 border-b border-gray-200 dark:border-gray-700 w-1/5">
                     Amount
                   </th>
                 </tr>
@@ -201,16 +201,16 @@ export default function Dashboard() {
               <tbody>
                 {topProducts.map((product) => (
                   <tr key={product.id}>
-                    <td className="text-sm py-3 text-gray-900 dark:text-white truncate max-w-[150px]">
+                    <td className="text-sm py-3 text-gray-900 dark:text-white truncate max-w-[200px]">
                       {product.name}
                     </td>
-                    <td className="text-sm py-3 text-gray-900 dark:text-white truncate">
+                    <td className="text-sm py-3 text-gray-900 dark:text-white whitespace-nowrap">
                       ${product.price.toFixed(2)}
                     </td>
-                    <td className="text-sm py-3 text-gray-900 dark:text-white truncate">
+                    <td className="text-sm py-3 text-gray-900 dark:text-white whitespace-nowrap">
                       {product.quantity}
                     </td>
-                    <td className="text-sm py-3 text-gray-900 dark:text-white truncate">
+                    <td className="text-sm py-3 text-gray-900 dark:text-white whitespace-nowrap">
                       $
                       {product.amount.toLocaleString("en-US", {
                         minimumFractionDigits: 2,
@@ -226,7 +226,7 @@ export default function Dashboard() {
 
         {/* Total Sales Donut */}
         <motion.div
-          className="bg-chart-bg  dark:bg-gray-800  rounded-2xl p-6 "
+          className="bg-chart-bg dark:bg-gray-800 rounded-2xl p-4 md:p-6"
           variants={fadeInUp}
         >
           <Suspense fallback={<ChartSkeleton />}>
