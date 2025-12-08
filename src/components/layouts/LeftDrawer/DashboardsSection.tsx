@@ -5,7 +5,7 @@ import {
   BookOpen,
   ShoppingCart,
 } from "lucide-react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { MenuItem } from "./MenuItem";
 
 export function DashboardsSection({
@@ -15,16 +15,7 @@ export function DashboardsSection({
   onClose?: () => void;
   isMobile?: boolean;
 }) {
-  const router = useRouter();
   const pathname = usePathname();
-
-  const handleNavigation = (path: string) => {
-    router.push(path);
-    // Close drawer on mobile after navigation
-    if (isMobile && onClose) {
-      onClose();
-    }
-  };
 
   return (
     <div>
@@ -36,19 +27,22 @@ export function DashboardsSection({
           icon={<PieChart className="w-5 h-5" />}
           label="Default"
           active={pathname === "/dashboard"}
-          onClick={() => handleNavigation("/dashboard")}
+          href="/dashboard"
+          onClick={isMobile && onClose ? onClose : undefined}
         />
         <MenuItem
           icon={<ShoppingCart className="w-5 h-5" />}
           label="Orders"
           active={pathname === "/dashboard/order-list"}
-          onClick={() => handleNavigation("/dashboard/order-list")}
+          href="/dashboard/order-list"
+          onClick={isMobile && onClose ? onClose : undefined}
         />
         <MenuItem
           icon={<FolderOpen className="w-5 h-5" />}
-          onClick={() => handleNavigation("/dashboard/projects")}
           label="Projects"
           active={pathname === "/dashboard/projects"}
+          href="/dashboard/projects"
+          onClick={isMobile && onClose ? onClose : undefined}
         />
         <MenuItem
           icon={<ShoppingBag className="w-5 h-5" />}
