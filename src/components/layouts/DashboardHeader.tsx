@@ -259,8 +259,6 @@ export function DashboardHeader({
                 onClick={onNotificationClick}
               >
                 <Bell className="w-5 h-5 text-gray-700 dark:text-gray-200" />
-                {/* Notification badge */}
-                <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-blue-500 rounded-full border-2 border-white dark:border-gray-900"></span>
               </button>
             </div>
 
