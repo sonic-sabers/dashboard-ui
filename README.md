@@ -2,6 +2,8 @@
 
 A modern, responsive SaaS dashboard built with Next.js, React, TypeScript, and Tailwind CSS. This project implements a pixel-perfect eCommerce dashboard with advanced features including dark/light theme, filtering, sorting, pagination, and smooth animations.
 
+**Deployed Application:** [https://dashboard-six-psi-98.vercel.app/dashboard](https://dashboard-six-psi-98.vercel.app/dashboard)
+
 ## 📸 Screenshots
 
 ### Dashboard Home - Light Mode
@@ -22,7 +24,7 @@ A modern, responsive SaaS dashboard built with Next.js, React, TypeScript, and T
 
 ## 🚀 Live Demo
 
-**Deployed Application:**
+
 
 ## ⚡ Working Features
 
