@@ -1,4 +1,4 @@
-# SaaS Dashboard - Juspay UI Assignment
+# SaaS Dashboard 
 
 A modern, responsive SaaS dashboard built with Next.js, React, TypeScript, and Tailwind CSS. This project implements a pixel-perfect eCommerce dashboard with advanced features including dark/light theme, filtering, sorting, pagination, and smooth animations.
 
