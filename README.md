@@ -296,8 +296,8 @@ A modern, responsive SaaS dashboard built with Next.js, React, TypeScript, and T
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/sonic-sabers/juspay-ui.git
-cd juspay-ui
+git clone https://github.com/sonic-sabers/dashboard-ui.git
+cd dashboard-ui
 ```
 
 2. **Install dependencies**
@@ -355,7 +355,7 @@ npm test -- MenuItem.test.tsx
 ## 📁 Project Structure
 
 ```
-juspay-ui/
+dashboard-ui/
 ├── src/
 │   ├── app/                          # Next.js App Router
 │   │   ├── dashboard/                # Dashboard routes
