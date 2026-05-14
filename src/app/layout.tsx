@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Juspay UI - Modern SaaS Dashboard",
+  title: "Modern SaaS Dashboard",
   description:
     "A modern, responsive SaaS dashboard built with Next.js, React, TypeScript, and Tailwind CSS. Features include dark/light theme, advanced data tables with filtering, sorting, pagination, and smooth animations.",
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Ashish Gupta" }],
   creator: "Ashish Gupta",
   openGraph: {
-    title: "Juspay UI - Modern SaaS Dashboard",
+    title: "Modern SaaS Dashboard",
     description: "A modern, responsive SaaS dashboard with advanced features",
     type: "website",
   },
